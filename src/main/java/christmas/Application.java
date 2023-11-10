@@ -1,13 +1,17 @@
 package christmas;
 
-import christmas.view.OutputView;
+import christmas.controller.Controller;
 
 public class Application {
 
-    private static OutputView outputView = new OutputView();
+    private static Controller controller = new Controller();
 
     public static void main(String[] args) {
         // TODO: 프로그램 구현
-        outputView.printStart();
+
+        controller.printStartMessage();
+
+        controller.readVisitDate();
+
     }
 }
