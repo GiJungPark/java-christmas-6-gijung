@@ -22,4 +22,14 @@ public class Controller {
             readVisitDate();
         }
     }
+
+    public void readOrderMenu() {
+        try {
+            christmasService.setOrderMenu(inputView.readMenu());
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            readOrderMenu();
+        }
+    }
+
 }
