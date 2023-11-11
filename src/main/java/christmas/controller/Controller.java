@@ -32,4 +32,8 @@ public class Controller {
         }
     }
 
+    public void printGuideMessage() {
+        outputView.printGuide(christmasService.getVisitDate());
+    }
+
 }

@@ -15,5 +15,7 @@ public class Application {
 
         controller.readOrderMenu();
 
+        controller.printGuideMessage();
+
     }
 }
