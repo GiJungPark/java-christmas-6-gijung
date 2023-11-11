@@ -1,6 +1,7 @@
 package christmas.controller;
 
 import christmas.service.ChristmasService;
+import christmas.service.ConvertorService;
 import christmas.view.InputView;
 import christmas.view.OutputView;
 
@@ -9,6 +10,7 @@ public class Controller {
     private InputView inputView = new InputView();
     private OutputView outputView = new OutputView();
     private ChristmasService christmasService = new ChristmasService();
+    private ConvertorService convertorService = new ConvertorService();
 
     public void printStartMessage() {
         outputView.printStart();
@@ -25,7 +27,7 @@ public class Controller {
 
     public void readOrderMenu() {
         try {
-            christmasService.setOrderMenu(inputView.readMenu());
+            christmasService.setOrderMenu(convertorService.changeForService(inputView.readMenu()));
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             readOrderMenu();
@@ -38,7 +40,7 @@ public class Controller {
     }
 
     public void printOrderMenu() {
-        outputView.printMenu(christmasService.getOrderMenus());
+        outputView.printMenu(convertorService.changeForView(christmasService.getOrderMenus()));
     }
 
 }
