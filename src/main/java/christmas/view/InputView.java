@@ -46,7 +46,15 @@ public class InputView {
 
         validateNull(input);
 
+        validateEndWithComma(input);
+
         return separate(input);
+    }
+
+    private void validateEndWithComma(String input) {
+        if (input.charAt(input.length() - 1) == ',') {
+            throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
+        }
     }
 
     private HashMap<String, Integer> separate(String input) {
