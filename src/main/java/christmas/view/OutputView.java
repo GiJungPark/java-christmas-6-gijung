@@ -1,5 +1,6 @@
 package christmas.view;
 
+import java.text.DecimalFormat;
 import java.util.HashMap;
 
 public class OutputView {
@@ -23,5 +24,11 @@ public class OutputView {
             System.out.println(String.format("%s %d개", title, orderMenus.get(title)));
         }
     }
-    // ...
+
+    public void printTotalPriceBeforeDiscount(int totalPriceBeforeDiscount) {
+        System.out.println("<할인 전 총주문 금액>");
+
+        DecimalFormat df = new DecimalFormat("#,###원");
+        System.out.println(df.format(totalPriceBeforeDiscount));
+    }
 }
