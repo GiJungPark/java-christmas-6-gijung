@@ -1,5 +1,7 @@
 package christmas.view;
 
+import java.util.HashMap;
+
 public class OutputView {
 
     public void printStart() {
@@ -14,9 +16,12 @@ public class OutputView {
         System.out.println(String.format("12월 %d일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!", visitDate));
     }
 
-    public void printMenu() {
+    public void printMenu(HashMap<String, Integer> orderMenus) {
         System.out.println("<주문 메뉴>");
-        // ...
+
+        for(String title : orderMenus.keySet()) {
+            System.out.println(String.format("%s %d개", title, orderMenus.get(title)));
+        }
     }
     // ...
 }
