@@ -28,6 +28,7 @@ public class Controller {
     public void readOrderMenu() {
         try {
             christmasService.setOrderMenu(convertorService.changeForService(inputView.readMenu()));
+            christmasService.setTotalPriceBeforeDiscount();
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             readOrderMenu();
@@ -41,6 +42,11 @@ public class Controller {
 
     public void printOrderMenu() {
         outputView.printMenu(convertorService.changeForView(christmasService.getOrderMenus()));
+        outputView.printChangeLine();
+    }
+
+    public void printTotalPriceBeforeDiscount() {
+        outputView.printTotalPriceBeforeDiscount(christmasService.getTotalPriceBeforeDiscount());
     }
 
 }
