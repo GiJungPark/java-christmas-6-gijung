@@ -81,8 +81,6 @@ public class InputView {
 
         List<String> separatedInput = List.of(input.split(","));
 
-        validateSeparateSize(separatedInput.size());
-
         return separatedInput;
     }
 
