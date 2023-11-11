@@ -34,6 +34,11 @@ public class Controller {
 
     public void printGuideMessage() {
         outputView.printGuide(christmasService.getVisitDate());
+        outputView.printChangeLine();
+    }
+
+    public void printOrderMenu() {
+        outputView.printMenu(christmasService.getOrderMenus());
     }
 
 }

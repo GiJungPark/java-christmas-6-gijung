@@ -21,4 +21,8 @@ public class ChristmasService {
     public int getVisitDate() {
         return visitDate.getNumber();
     }
+
+    public HashMap<String, Integer> getOrderMenus() {
+        return orderMenu.get();
+    }
 }

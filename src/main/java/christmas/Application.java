@@ -17,5 +17,7 @@ public class Application {
 
         controller.printGuideMessage();
 
+        controller.printOrderMenu();
+
     }
 }
