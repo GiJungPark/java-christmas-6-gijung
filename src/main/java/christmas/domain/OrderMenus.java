@@ -34,4 +34,13 @@ public class OrderMenus {
         }
     }
 
+    public HashMap<String, Integer> get() {
+
+        HashMap<String, Integer> map = new HashMap<>();
+        for (String name : orderMenus.keySet()) {
+            map.put(Menu.valueOf(name).getTitle(), orderMenus.get(name));
+        }
+
+        return map;
+    }
 }
