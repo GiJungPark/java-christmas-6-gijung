@@ -81,10 +81,12 @@
 
 ---
 
-## 6️⃣ 할인 전 총주문 금액을 출력한다.
+## 6️⃣ 할인 전 총주문 금액을 계산 및 출력한다.
+-> ChristmasService#setTotalPriceBeforeDiscount(), OutputView#printTotalPriceBeforeDiscount
 ### 기능
 - "<할인 전 총주문 금액>"를 출력한다.
-
+- 할인 전 총 주문 금액을 계산한다.
+  - 총 주문 금액 += (메뉴의 금액 * 메뉴의 개수) 반복
 - 할인 전 총 주문 금액을 출력한다.
   - "{총 주문 금액}원"을 출력한다.
   - 금액은 천단위로 쉼표(,)를 넣어야 한다.
