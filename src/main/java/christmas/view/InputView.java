@@ -14,7 +14,7 @@ public class InputView {
 
         validateNull(input);
 
-        validateNumber(input);
+        validateDate(input);
 
         return Integer.parseInt(input);
     }
@@ -32,7 +32,7 @@ public class InputView {
         }
     }
 
-    private void validateNumber(String input) {
+    private void validateDate(String input) {
         if (!input.matches("\\d*")) {
             throw new IllegalArgumentException("[ERROR] 날짜는 숫자로 입력해야 합니다. 다시 입력해 주세요.");
         }
@@ -49,12 +49,6 @@ public class InputView {
         return separate(input);
     }
 
-    private void validateKorean(String input) {
-        if (!input.matches("^[ㄱ-ㅎ가-힣]*$")) {
-            throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
-        }
-    }
-
     private HashMap<String, Integer> separate(String input) {
 
         HashMap<String, Integer> separatedInput = new HashMap<>();
@@ -69,6 +63,18 @@ public class InputView {
         }
 
         return separatedInput;
+    }
+
+    private void validateKorean(String input) {
+        if (!input.matches("^[ㄱ-ㅎ가-힣]*$")) {
+            throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
+        }
+    }
+
+    private void validateNumber(String input) {
+        if (!input.matches("\\d*")) {
+            throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
+        }
     }
 
     private List<String> separateWithComma(String input) {
@@ -91,13 +97,13 @@ public class InputView {
 
     private void validateSeparateSize(int size) {
         if (size != 2) {
-            throw new IllegalArgumentException("입력값 형식에 맞지 않는다.");
+            throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
         }
     }
 
     private void duplicateMenuTitle(HashMap<String, Integer> separatedInput, String menuTitle) {
         if (separatedInput.containsKey(menuTitle)) {
-            throw new IllegalArgumentException("중복");
+            throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
         }
     }
     // ...
