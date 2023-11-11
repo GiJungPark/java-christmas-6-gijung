@@ -51,7 +51,7 @@ public enum Menu {
             }
         }
 
-        throw new IllegalArgumentException("일치하는 이름이 없엉");
+        throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
     }
 
     public static void isDrink(List<String> menuTitles) {
@@ -62,6 +62,6 @@ public enum Menu {
             }
         }
 
-        throw new IllegalArgumentException("음료만 시켰음");
+        throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
     }
 }
