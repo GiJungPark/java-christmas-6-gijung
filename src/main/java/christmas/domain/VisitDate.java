@@ -17,4 +17,7 @@ public class VisitDate {
         }
     }
 
+    public int getNumber() {
+        return number;
+    }
 }

@@ -17,4 +17,8 @@ public class ChristmasService {
     public void setOrderMenu(HashMap<String, Integer> orderMenu) {
         this.orderMenu = new OrderMenus(orderMenu);
     }
+
+    public int getVisitDate() {
+        return visitDate.getNumber();
+    }
 }
