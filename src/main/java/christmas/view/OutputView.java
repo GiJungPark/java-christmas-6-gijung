@@ -1,6 +1,7 @@
 package christmas.view;
 
 import christmas.domain.DiscountEvent;
+import christmas.domain.EventBadge;
 import christmas.domain.GiveAway;
 import christmas.domain.Price;
 
@@ -73,5 +74,10 @@ public class OutputView {
 
         DecimalFormat df = new DecimalFormat("#,###원");
         System.out.println(df.format(expectedPaymentPrice.getPrice()));
+    }
+
+    public void printEventBadge(EventBadge badge) {
+        System.out.println("<12월 이벤트 배지>");
+        System.out.println(badge.getBadge());
     }
 }
