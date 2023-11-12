@@ -1,4 +1,4 @@
-package christmas.domain.configuration;
+package christmas.configuration;
 
 import java.util.List;
 

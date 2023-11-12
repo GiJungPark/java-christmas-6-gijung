@@ -1,6 +1,6 @@
 package christmas.domain;
 
-import christmas.domain.configuration.Menu;
+import christmas.configuration.Menu;
 
 import java.util.ArrayList;
 import java.util.HashMap;

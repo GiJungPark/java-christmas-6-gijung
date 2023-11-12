@@ -4,7 +4,7 @@ import christmas.domain.GiveAway;
 import christmas.domain.OrderMenus;
 import christmas.domain.Price;
 import christmas.domain.VisitDate;
-import christmas.domain.configuration.Menu;
+import christmas.configuration.Menu;
 
 import java.util.HashMap;
 

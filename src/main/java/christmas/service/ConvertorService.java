@@ -1,6 +1,6 @@
 package christmas.service;
 
-import christmas.domain.configuration.Menu;
+import christmas.configuration.Menu;
 
 import java.util.HashMap;
 

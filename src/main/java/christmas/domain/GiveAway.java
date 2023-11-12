@@ -1,6 +1,6 @@
 package christmas.domain;
 
-import christmas.domain.configuration.Menu;
+import christmas.configuration.Menu;
 
 public class GiveAway {
 
