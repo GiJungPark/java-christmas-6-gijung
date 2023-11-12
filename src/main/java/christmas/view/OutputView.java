@@ -1,5 +1,7 @@
 package christmas.view;
 
+import christmas.domain.GiveAway;
+
 import java.text.DecimalFormat;
 import java.util.HashMap;
 
@@ -20,7 +22,7 @@ public class OutputView {
     public void printMenu(HashMap<String, Integer> orderMenus) {
         System.out.println("<주문 메뉴>");
 
-        for(String title : orderMenus.keySet()) {
+        for (String title : orderMenus.keySet()) {
             System.out.println(String.format("%s %d개", title, orderMenus.get(title)));
         }
     }
@@ -28,7 +30,18 @@ public class OutputView {
     public void printTotalPriceBeforeDiscount(int totalPriceBeforeDiscount) {
         System.out.println("<할인 전 총주문 금액>");
 
-        DecimalFormat df = new DecimalFormat("#,###원");
+        DecimalFormat df = new DecimalFormat("#,###");
         System.out.println(df.format(totalPriceBeforeDiscount));
+    }
+
+    public void printGiveAwayMenu(GiveAway givenAway) {
+        System.out.println("<증정 메뉴>");
+
+        if (givenAway.getTitle().equals("없음")) {
+            System.out.println("없음");
+            return;
+        }
+
+        System.out.println(String.format("%s %d개", givenAway.getTitle(), givenAway.getCount()));
     }
 }
