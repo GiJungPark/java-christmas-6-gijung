@@ -20,5 +20,7 @@ public class Application {
         controller.printOrderMenu();
 
         controller.printTotalPriceBeforeDiscount();
+
+        controller.printGiveAway();
     }
 }

@@ -47,6 +47,10 @@ public class Controller {
 
     public void printTotalPriceBeforeDiscount() {
         outputView.printTotalPriceBeforeDiscount(christmasService.getTotalPriceBeforeDiscount());
+        outputView.printChangeLine();
     }
 
+    public void printGiveAway() {
+        outputView.printGiveAwayMenu(christmasService.getGiveAwayEvent());
+    }
 }
