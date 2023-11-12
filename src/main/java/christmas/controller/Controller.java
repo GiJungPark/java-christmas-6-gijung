@@ -52,5 +52,11 @@ public class Controller {
 
     public void printGiveAway() {
         outputView.printGiveAwayMenu(christmasService.getGiveAwayEvent());
+        outputView.printChangeLine();
+    }
+
+    public void printDiscountEvent() {
+        christmasService.setDiscountEvent();
+        outputView.printDiscountHistory(christmasService.getDiscountEvent());
     }
 }
