@@ -68,5 +68,11 @@ public class Controller {
 
     public void printExpectedPaymentPrice() {
         outputView.printExpectedPaymentPrice(christmasService.getExpectedPaymentPrice());
+        outputView.printChangeLine();
+    }
+
+    public void printEventBadge() {
+        christmasService.setEventBadge();
+        outputView.printEventBadge(christmasService.getEventBadge());
     }
 }

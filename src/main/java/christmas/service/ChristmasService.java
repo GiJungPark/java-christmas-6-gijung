@@ -1,6 +1,7 @@
 package christmas.service;
 
 import christmas.domain.DiscountEvent;
+import christmas.domain.EventBadge;
 import christmas.domain.GiveAway;
 import christmas.domain.OrderMenus;
 import christmas.domain.Price;
@@ -17,6 +18,7 @@ public class ChristmasService {
     private Price price;
     private GiveAway giveAway;
     private DiscountEvent discountEvent;
+    private EventBadge eventBadge;
 
 
     public void setVisitDate(int number) {
@@ -146,5 +148,13 @@ public class ChristmasService {
 
     public Price getExpectedPaymentPrice() {
         return new Price(price.getPrice() - discountEvent.getDiscountPrice());
+    }
+
+    public void setEventBadge() {
+        eventBadge = new EventBadge(discountEvent.getTotalDiscountPrice());
+    }
+
+    public EventBadge getEventBadge() {
+        return eventBadge;
     }
 }
