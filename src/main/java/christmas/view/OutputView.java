@@ -1,5 +1,6 @@
 package christmas.view;
 
+import christmas.domain.DiscountEvent;
 import christmas.domain.GiveAway;
 
 import java.text.DecimalFormat;
@@ -43,5 +44,19 @@ public class OutputView {
         }
 
         System.out.println(String.format("%s %d개", givenAway.getTitle(), givenAway.getCount()));
+    }
+
+    public void printDiscountHistory(DiscountEvent discountEvent) {
+        System.out.println("<혜택 내역>");
+
+        if(discountEvent.getDiscountEventHistory().isEmpty()) {
+            System.out.println("없음");
+        }
+
+        DecimalFormat df = new DecimalFormat("-#,###원");
+
+        for (String title : discountEvent.getDiscountEventHistory().keySet()) {
+            System.out.println(String.format("%s: %s", title, df.format(discountEvent.getDiscountEventHistory().get(title))));
+        }
     }
 }
