@@ -59,16 +59,22 @@ public class ChristmasService {
     public void setDiscountEvent() {
 
         Map<String, Integer> map = new HashMap<>();
+
+        if (price.getPrice() < 10_000) {
+            discountEvent = new DiscountEvent(map);
+            return;
+        }
+
         if (daysUntilChristmasDiscount() != 0) {
             map.put("크리스마스 데이 할인", daysUntilChristmasDiscount());
         }
-        if (weekdayDiscount() != 0 ) {
+        if (weekdayDiscount() != 0) {
             map.put("평일 할인", weekdayDiscount());
         }
-        if(weekendDiscount() != 0) {
+        if (weekendDiscount() != 0) {
             map.put("주말 할인", weekendDiscount());
         }
-        if(specialDiscount() != 0) {
+        if (specialDiscount() != 0) {
             map.put("특별 할인", specialDiscount());
         }
         if (giveAway.getCount() != 0) {
