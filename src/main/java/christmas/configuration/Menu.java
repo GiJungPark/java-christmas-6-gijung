@@ -4,7 +4,7 @@ import java.util.List;
 
 public enum Menu {
     BUTTON_MUSHROOM_SOUP("양송이수프", 6_000, "애피타이저"),
-    TAPAS("타파스",5_500, "애피타이저"),
+    TAPAS("타파스", 5_500, "애피타이저"),
     CAESAR_SALAD("시저샐러드", 8_000, "애피타이저"),
 
     T_BONE_STEAK("티본스테이크", 55_000, "메인"),
@@ -45,8 +45,8 @@ public enum Menu {
 
     public static String convertorTitle(String menuTitle) {
 
-        for(Menu menu: Menu.values()) {
-            if(menu.getTitle().equals(menuTitle)){
+        for (Menu menu : Menu.values()) {
+            if (menu.getTitle().equals(menuTitle)) {
                 return menu.name();
             }
         }
@@ -56,12 +56,20 @@ public enum Menu {
 
     public static void isOnlyDrink(List<String> menuTitles) {
 
-        for(String menuTitle : menuTitles) {
-            if(!Menu.valueOf(menuTitle).getGroup().equals("음료")){
+        for (String menuTitle : menuTitles) {
+            if (!Menu.valueOf(menuTitle).getGroup().equals("음료")) {
                 return;
             }
         }
 
         throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
+    }
+
+    public static boolean isDesert(String menuTitle) {
+        return Menu.valueOf(menuTitle).getGroup().equals("디저트");
+    }
+
+    public static boolean isMain(String menuTitle) {
+        return Menu.valueOf(menuTitle).getGroup().equals("메인");
     }
 }
