@@ -67,4 +67,11 @@ public class OutputView {
         DecimalFormat df = new DecimalFormat("-#,###원");
         System.out.println(df.format(totalDiscountPrice.getPrice()));
     }
+
+    public void printExpectedPaymentPrice(Price expectedPaymentPrice) {
+        System.out.println("<할인 후 예상 결제 금액>");
+
+        DecimalFormat df = new DecimalFormat("#,###원");
+        System.out.println(df.format(expectedPaymentPrice.getPrice()));
+    }
 }
