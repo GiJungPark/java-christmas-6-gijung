@@ -171,6 +171,7 @@
 ---
 
 ## 1️⃣1️⃣ 이벤트 배지를 출력한다.
+-> EventBadge#EventBadge(), OutputView#printEventBadge()
 ### 기능
 - "<12월 이벤트 배지>"를 출력한다.
 
