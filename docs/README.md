@@ -158,6 +158,7 @@
 ---
 
 ## 1️⃣0️⃣ 할인 후 예상 결제 금액을 출력한다.
+-> discountEvent#getDiscountPrice(), OutputView#printExpectedPaymentPrice()
 ### 기능
 - "<할인 후 예상 결제 금액>"을 출력한다.
 
