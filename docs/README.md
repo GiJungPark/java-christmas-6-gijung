@@ -64,14 +64,14 @@
 ---
 
 ## 4️⃣ 식당 방문일 이벤트 혜택 안내 메세지를 출력한다.
--> OutputView#printGuide(int visitDate)
+-> OutputView#printGuide()
 ### 기능
 - "12월 {방문 날짜}일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!"를 출력한다.
 
 ---
 
 ## 5️⃣ 주문 메뉴를 출력한다.
--> OutputView#printMenu(HashMap<String, Integer> orderMenus)
+-> OutputView#printMenu()
 ### 기능
 - "<주문 메뉴>"를 출력한다.
 
@@ -82,7 +82,7 @@
 ---
 
 ## 6️⃣ 할인 전 총주문 금액을 계산 및 출력한다.
--> ChristmasService#setTotalPriceBeforeDiscount(), OutputView#printTotalPriceBeforeDiscount
+-> ChristmasService#setTotalPriceBeforeDiscount(), OutputView#printTotalPriceBeforeDiscount()
 ### 기능
 - "<할인 전 총주문 금액>"를 출력한다.
 - 할인 전 총 주문 금액을 계산한다.
@@ -94,6 +94,7 @@
 ---
 
 ## 7️⃣ 증정 메뉴를 출력한다.
+-> OutputView#printGiveAwayMenu(), GiveAway#GiveAway()
 ### 기능
 - "<증정 메뉴>"를 출력한다.
 
