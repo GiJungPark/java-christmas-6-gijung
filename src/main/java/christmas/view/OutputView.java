@@ -2,6 +2,7 @@ package christmas.view;
 
 import christmas.domain.DiscountEvent;
 import christmas.domain.GiveAway;
+import christmas.domain.Price;
 
 import java.text.DecimalFormat;
 import java.util.HashMap;
@@ -31,7 +32,7 @@ public class OutputView {
     public void printTotalPriceBeforeDiscount(int totalPriceBeforeDiscount) {
         System.out.println("<할인 전 총주문 금액>");
 
-        DecimalFormat df = new DecimalFormat("#,###");
+        DecimalFormat df = new DecimalFormat("#,###원");
         System.out.println(df.format(totalPriceBeforeDiscount));
     }
 
@@ -58,5 +59,12 @@ public class OutputView {
         for (String title : discountEvent.getDiscountEventHistory().keySet()) {
             System.out.println(String.format("%s: %s", title, df.format(discountEvent.getDiscountEventHistory().get(title))));
         }
+    }
+
+    public void printTotalDiscountPrice(Price totalDiscountPrice) {
+        System.out.println("<총혜택 금액>");
+
+        DecimalFormat df = new DecimalFormat("-#,###원");
+        System.out.println(df.format(totalDiscountPrice));
     }
 }
