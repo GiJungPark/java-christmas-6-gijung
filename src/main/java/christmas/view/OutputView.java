@@ -64,8 +64,8 @@ public class OutputView {
     public void printTotalDiscountPrice(Price totalDiscountPrice) {
         System.out.println("<총혜택 금액>");
 
-        DecimalFormat df = new DecimalFormat("-#,###원");
-        System.out.println(df.format(totalDiscountPrice.getPrice()));
+        DecimalFormat df = new DecimalFormat("#,###원");
+        System.out.println(df.format(-totalDiscountPrice.getPrice()));
     }
 
     public void printExpectedPaymentPrice(Price expectedPaymentPrice) {
