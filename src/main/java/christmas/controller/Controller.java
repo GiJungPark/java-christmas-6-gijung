@@ -59,4 +59,8 @@ public class Controller {
         christmasService.setDiscountEvent();
         outputView.printDiscountHistory(christmasService.getDiscountEvent());
     }
+
+    public void printTotalDiscountPrice() {
+        outputView.printTotalDiscountPrice(christmasService.getTotalDiscountPrice());
+    }
 }

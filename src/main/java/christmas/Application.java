@@ -24,5 +24,7 @@ public class Application {
         controller.printGiveAway();
 
         controller.printDiscountEvent();
+
+        controller.printTotalDiscountPrice();
     }
 }

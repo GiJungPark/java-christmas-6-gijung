@@ -133,4 +133,8 @@ public class ChristmasService {
     public DiscountEvent getDiscountEvent() {
         return discountEvent;
     }
+
+    public Price getTotalDiscountPrice() {
+        return new Price(discountEvent.getTotalDiscountPrice());
+    }
 }
