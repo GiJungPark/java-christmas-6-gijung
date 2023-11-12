@@ -143,6 +143,7 @@
 ---
 
 ## 9️⃣ 총혜택 금액을 출력한다.
+-> DiscountEvent#getTotalDiscountPrice(), OutputView#printTotalDiscountPrice()
 ### 기능
 - "<총혜택 금액>"을 출력한다.
 
