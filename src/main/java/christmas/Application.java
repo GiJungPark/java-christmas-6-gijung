@@ -26,5 +26,7 @@ public class Application {
         controller.printDiscountEvent();
 
         controller.printTotalDiscountPrice();
+
+        controller.printExpectedPaymentPrice();
     }
 }
