@@ -18,7 +18,6 @@ public class OrderMenus {
         for (String menu : orderMenus.keySet()) {
 
             validateMenuCount(orderMenus.get(menu));
-
             menus.put(Menu.findMenu(menu), orderMenus.get(menu));
         }
 
@@ -36,18 +35,18 @@ public class OrderMenus {
     }
 
     private static void validateMenuCount(int count) {
-        if (Count.isIncludeScope(count)) {
+        if (!Count.isIncludeScope(count)) {
             throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
         }
     }
 
     private static void validateOnlyDrink(Set<Menu> menus) {
-        if (menus.stream().anyMatch(menu -> Menu.isDrink(menu.name()))) {
+        if (menus.stream().allMatch(menu -> Menu.isDrink(menu.name()))) {
             throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
         }
     }
 
-    public Map<String, Integer> get() {
-        return new HashMap<String, Integer>();
+    public Map<Menu, Integer> getValues() {
+        return values;
     }
 }

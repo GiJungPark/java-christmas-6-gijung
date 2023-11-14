@@ -5,10 +5,11 @@ import christmas.configuration.Message;
 import christmas.domain.DiscountEvent;
 import christmas.domain.EventBadge;
 import christmas.domain.GiveAway;
+import christmas.domain.OrderMenus;
 import christmas.domain.Price;
+import christmas.domain.VisitDate;
 
 import java.text.DecimalFormat;
-import java.util.Map;
 
 public class OutputView {
 
@@ -30,16 +31,16 @@ public class OutputView {
         System.out.println(Message.READ_ORDER_MENU.getValue());
     }
 
-    public static void printGuide(int visitDate) {
-        System.out.println(String.format(Message.WRITE_VISIT_DATE.getValue(), visitDate));
+    public static void printGuide(VisitDate visitDate) {
+        System.out.println(String.format(Message.WRITE_VISIT_DATE.getValue(), visitDate.getNumber()));
     }
 
-    public static void printMenu(Map<String, Integer> orderMenus) {
+    public static void printMenu(OrderMenus orderMenus) {
         System.out.println(Message.ORDER_MENU.getValue());
 
-        for (String key : orderMenus.keySet()) {
+        for (Menu menu : orderMenus.getValues().keySet()) {
             System.out.println(String.
-                    format(Message.MENU_NAME_COUNT.getValue(), Menu.valueOf(key).getTitle(), orderMenus.get(key)));
+                    format(Message.MENU_NAME_COUNT.getValue(), menu.getTitle(), orderMenus.getValues().get(menu)));
         }
     }
 
@@ -87,6 +88,6 @@ public class OutputView {
 
     public static void printEventBadge(EventBadge badge) {
         System.out.println(Message.EVENT_BADGE.getValue());
-        System.out.println(badge.getBadge());
+        System.out.println(badge.toString());
     }
 }

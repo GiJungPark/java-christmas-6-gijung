@@ -29,20 +29,20 @@ public class ChristmasService {
         this.orderMenu = new OrderMenus(orderMenu);
     }
 
-    public int getVisitDate() {
-        return visitDate.getNumber();
+    public VisitDate getVisitDate() {
+        return visitDate;
     }
 
-    public Map<String, Integer> getOrderMenus() {
-        return orderMenu.get();
+    public OrderMenus getOrderMenus() {
+        return orderMenu;
     }
 
     public void setTotalPriceBeforeDiscount() {
 
         int price = 0;
 
-        for (String menuTitle : orderMenu.get().keySet()) {
-            price += Menu.valueOf(menuTitle).getPrice() * orderMenu.get().get(menuTitle);
+        for (Menu menu : orderMenu.getValues().keySet()) {
+            price += menu.getPrice() * orderMenu.getValues().get(menu);
         }
 
         giveAway = new GiveAway(price >= 120000);
@@ -102,9 +102,9 @@ public class ChristmasService {
         int price = 0;
 
         if (visitDate.getNumber() % 7 != 1 && visitDate.getNumber() % 7 != 2) {
-            for (String title : orderMenu.get().keySet()) {
-                if (Menu.isDesert(title)) {
-                    price += orderMenu.get().get(title) * 2023;
+            for (Menu menu : orderMenu.getValues().keySet()) {
+                if (Menu.isDesert(menu.getTitle())) {
+                    price += orderMenu.getValues().get(menu) * 2023;
                 }
             }
         }
@@ -117,9 +117,9 @@ public class ChristmasService {
         int price = 0;
 
         if (visitDate.getNumber() % 7 == 1 || visitDate.getNumber() % 7 == 2) {
-            for (String title : orderMenu.get().keySet()) {
-                if (Menu.isMain(title)) {
-                    price += orderMenu.get().get(title) * 2023;
+            for (Menu menu : orderMenu.getValues().keySet()) {
+                if (Menu.isMain(menu.getTitle())) {
+                    price += orderMenu.getValues().get(menu) * 2023;
                 }
             }
         }
