@@ -37,19 +37,40 @@ public enum Menu {
         return price;
     }
 
+    public static int getPrice(String menuTitle) {
+        for (Menu menu : Menu.values()) {
+            if (menu.getTitle().equals(menuTitle)) {
+                return menu.price;
+            }
+        }
+
+        return EMPTY.getPrice();
+    }
+
     public String getGroup() {
         return group;
     }
 
-    public static Menu findMenu(String menuTitle) {
+    public static String findMenu(String menuTitle) {
 
         for (Menu menu : Menu.values()) {
             if (menu.getTitle().equals(menuTitle)) {
-                return menu;
+                return menu.name();
             }
         }
 
-        return Menu.EMPTY;
+        return EMPTY.name();
+    }
+
+    public static boolean hasTitle(String menuTitle) {
+
+        for (Menu menu : Menu.values()) {
+            if (menu.getTitle().equals(menuTitle)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public static boolean isDrink(String menuTitle) {
