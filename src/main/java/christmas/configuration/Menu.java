@@ -1,7 +1,5 @@
 package christmas.configuration;
 
-import java.util.List;
-
 public enum Menu {
     BUTTON_MUSHROOM_SOUP("양송이수프", 6_000, "애피타이저"),
     TAPAS("타파스", 5_500, "애피타이저"),
@@ -43,26 +41,19 @@ public enum Menu {
         return group;
     }
 
-    public static String convertorTitle(String menuTitle) {
+    public static Menu findMenu(String menuTitle) {
 
         for (Menu menu : Menu.values()) {
             if (menu.getTitle().equals(menuTitle)) {
-                return menu.name();
+                return menu;
             }
         }
 
-        throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
+        return Menu.EMPTY;
     }
 
-    public static void isOnlyDrink(List<String> menuTitles) {
-
-        for (String menuTitle : menuTitles) {
-            if (!Menu.valueOf(menuTitle).getGroup().equals("음료")) {
-                return;
-            }
-        }
-
-        throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
+    public static boolean isDrink(String menuTitle) {
+        return Menu.valueOf(menuTitle).getGroup().equals("음료");
     }
 
     public static boolean isDesert(String menuTitle) {
