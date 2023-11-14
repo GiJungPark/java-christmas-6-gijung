@@ -1,15 +1,13 @@
 package christmas.view;
 
-import java.util.HashMap;
-
 public class View {
 
-    public static int readDate() {
+    public static String readDate() {
         OutputView.printReadVisitDate();
         return InputView.readDate();
     }
 
-    public static HashMap<String, Integer> readOrderMenu() {
+    public static String readOrderMenu() {
         OutputView.printReadOrderMenu();
         return InputView.readOrderMenu();
     }

@@ -2,6 +2,7 @@ package christmas.controller;
 
 import christmas.service.ChristmasService;
 import christmas.service.ConvertorService;
+import christmas.utils.Convertor;
 import christmas.view.InputView;
 import christmas.view.OutputView;
 import christmas.view.View;
@@ -22,7 +23,7 @@ public class Controller {
 
     private void readVisitDate() {
         try {
-            christmasService.setVisitDate(View.readDate());
+            christmasService.setVisitDate(Convertor.toDate(View.readDate()));
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             readVisitDate();
@@ -31,7 +32,7 @@ public class Controller {
 
     private void readOrderMenu() {
         try {
-            christmasService.setOrderMenu(convertorService.changeForService(View.readOrderMenu()));
+            christmasService.setOrderMenu(convertorService.changeForService(Convertor.toMenus(View.readOrderMenu())));
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             readOrderMenu();
