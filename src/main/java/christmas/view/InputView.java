@@ -1,6 +1,7 @@
 package christmas.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import christmas.configuration.Message;
 
 import java.util.HashMap;
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.List;
 public class InputView {
     public int readDate() {
 
-        System.out.println("12월 중 식당 예상 방문 날짜는 언제인가요? (숫자만 입력해 주세요!)");
+        System.out.println(Message.READ_VISIT_DATE.getValue());
 
         String input = readLineByRemovingSpaces();
 
@@ -40,7 +41,7 @@ public class InputView {
 
     public HashMap<String, Integer> readMenu() {
 
-        System.out.println("주문하실 메뉴를 메뉴와 개수를 알려 주세요. (e.g. 해산물파스타-2,레드와인-1,초코케이크-1)");
+        System.out.println(Message.READ_MENU.getValue());
 
         String input = readLineByRemovingSpaces();
 

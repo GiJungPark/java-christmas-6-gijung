@@ -1,5 +1,7 @@
 package christmas.view;
 
+import christmas.configuration.Menu;
+import christmas.configuration.Message;
 import christmas.domain.DiscountEvent;
 import christmas.domain.EventBadge;
 import christmas.domain.GiveAway;
@@ -10,8 +12,10 @@ import java.util.HashMap;
 
 public class OutputView {
 
+    private static final DecimalFormat df = new DecimalFormat(Message.PRICE.getValue());
+
     public void printStart() {
-        System.out.println("안녕하세요! 우테코 식당 12월 이벤트 플래너입니다.");
+        System.out.println(Message.START.getValue());
     }
 
     public void printChangeLine() {
@@ -19,65 +23,61 @@ public class OutputView {
     }
 
     public void printGuide(int visitDate) {
-        System.out.println(String.format("12월 %d일에 우테코 식당에서 받을 이벤트 혜택 미리 보기!", visitDate));
+        System.out.println(String.format(Message.WRITE_VISIT_DATE.getValue(), visitDate));
     }
 
     public void printMenu(HashMap<String, Integer> orderMenus) {
-        System.out.println("<주문 메뉴>");
+        System.out.println(Message.ORDER_MENU.getValue());
 
         for (String title : orderMenus.keySet()) {
-            System.out.println(String.format("%s %d개", title, orderMenus.get(title)));
+            System.out.println(String.format(Message.MENU_NAME_COUNT.getValue(), title, orderMenus.get(title)));
         }
     }
 
     public void printTotalPriceBeforeDiscount(int totalPriceBeforeDiscount) {
-        System.out.println("<할인 전 총주문 금액>");
+        System.out.println(Message.TOTAL_PRICE_BEFORE_DISCOUNT.getValue());
 
-        DecimalFormat df = new DecimalFormat("#,###원");
         System.out.println(df.format(totalPriceBeforeDiscount));
     }
 
     public void printGiveAwayMenu(GiveAway givenAway) {
-        System.out.println("<증정 메뉴>");
+        System.out.println(Message.GIVE_AWAY.getValue());
 
-        if (givenAway.getTitle().equals("없음")) {
-            System.out.println("없음");
+        if (givenAway.getTitle().equals(Menu.EMPTY.getTitle())) {
+            System.out.println(Message.EMPTY.getValue());
             return;
         }
 
-        System.out.println(String.format("%s %d개", givenAway.getTitle(), givenAway.getCount()));
+        System.out.println(String.format(Message.MENU_NAME_COUNT.getValue(), givenAway.getTitle(), givenAway.getCount()));
     }
 
     public void printDiscountHistory(DiscountEvent discountEvent) {
-        System.out.println("<혜택 내역>");
+        System.out.println(Message.EVENT_HISTORY.getValue());
 
         if(discountEvent.getDiscountEventHistory().isEmpty()) {
-            System.out.println("없음");
+            System.out.println(Message.EMPTY.getValue());
         }
 
-        DecimalFormat df = new DecimalFormat("-#,###원");
-
         for (String title : discountEvent.getDiscountEventHistory().keySet()) {
-            System.out.println(String.format("%s: %s", title, df.format(discountEvent.getDiscountEventHistory().get(title))));
+            System.out.println(String.format(Message.EVENT_NAME_PRICE.getValue()
+                    , title, df.format(-discountEvent.getDiscountEventHistory().get(title))));
         }
     }
 
     public void printTotalDiscountPrice(Price totalDiscountPrice) {
-        System.out.println("<총혜택 금액>");
+        System.out.println(Message.TOTAL_EVENT_PRICE.getValue());
 
-        DecimalFormat df = new DecimalFormat("#,###원");
         System.out.println(df.format(-totalDiscountPrice.getPrice()));
     }
 
     public void printExpectedPaymentPrice(Price expectedPaymentPrice) {
-        System.out.println("<할인 후 예상 결제 금액>");
+        System.out.println(Message.EXPECTED_PRICE_AFTER_DISCOUNT.getValue());
 
-        DecimalFormat df = new DecimalFormat("#,###원");
         System.out.println(df.format(expectedPaymentPrice.getPrice()));
     }
 
     public void printEventBadge(EventBadge badge) {
-        System.out.println("<12월 이벤트 배지>");
+        System.out.println(Message.EVENT_BADGE.getValue());
         System.out.println(badge.getBadge());
     }
 }
