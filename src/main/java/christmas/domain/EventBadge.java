@@ -1,30 +1,17 @@
 package christmas.domain;
 
+import christmas.configuration.Badge;
+
 public class EventBadge {
 
     private final String badge;
 
     public EventBadge(int totalDiscountPrice) {
-
-        if(totalDiscountPrice >= 20_000) {
-            badge = "산타";
-            return;
-        }
-
-        if(totalDiscountPrice >= 10_000) {
-            badge = "트리";
-            return;
-        }
-
-        if(totalDiscountPrice >= 5_000) {
-            badge = "별";
-            return;
-        }
-
-        badge = "없음";
+        badge = Badge.getWhat(totalDiscountPrice);
     }
 
-    public String getBadge() {
+    @Override
+    public String toString() {
         return badge;
     }
 }
