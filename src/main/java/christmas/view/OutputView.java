@@ -38,16 +38,16 @@ public class OutputView {
     public static void printMenu(OrderMenus orderMenus) {
         System.out.println(Message.ORDER_MENU.getValue());
 
-        for (Menu menu : orderMenus.getValues().keySet()) {
+        for (String menuTitle : orderMenus.getValues().keySet()) {
             System.out.println(String.
-                    format(Message.MENU_NAME_COUNT.getValue(), menu.getTitle(), orderMenus.getValues().get(menu)));
+                    format(Message.MENU_NAME_COUNT.getValue(), menuTitle, orderMenus.getValues().get(menuTitle)));
         }
     }
 
-    public static void printTotalPriceBeforeDiscount(int totalPriceBeforeDiscount) {
+    public static void printTotalPriceBeforeDiscount(Price totalPriceBeforeDiscount) {
         System.out.println(Message.TOTAL_PRICE_BEFORE_DISCOUNT.getValue());
 
-        System.out.println(df.format(totalPriceBeforeDiscount));
+        System.out.println(df.format(totalPriceBeforeDiscount.getPrice()));
     }
 
     public static void printGiveAwayMenu(GiveAway givenAway) {

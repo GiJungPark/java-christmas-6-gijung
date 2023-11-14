@@ -10,15 +10,15 @@ import java.util.Set;
 
 public class OrderMenus {
 
-    private final Map<Menu, Integer> values;
+    private final Map<String, Integer> values;
 
     public OrderMenus(Map<String, Integer> orderMenus) {
 
-        Map<Menu, Integer> menus = new HashMap<>();
-        for (String menu : orderMenus.keySet()) {
+        Map<String, Integer> menus = new HashMap<>();
+        for (String menuTitle : orderMenus.keySet()) {
 
-            validateMenuCount(orderMenus.get(menu));
-            menus.put(Menu.findMenu(menu), orderMenus.get(menu));
+            validateMenuCount(orderMenus.get(menuTitle));
+            menus.put(menuTitle, orderMenus.get(menuTitle));
         }
 
         validateMenuName(menus.keySet());
@@ -28,8 +28,8 @@ public class OrderMenus {
         this.values = menus;
     }
 
-    private static void validateMenuName(Set<Menu> menus) {
-        if(menus.contains(Menu.EMPTY)) {
+    private static void validateMenuName(Set<String> menus) {
+        if(menus.contains(Menu.EMPTY.getTitle())) {
             throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
         }
     }
@@ -40,13 +40,13 @@ public class OrderMenus {
         }
     }
 
-    private static void validateOnlyDrink(Set<Menu> menus) {
-        if (menus.stream().allMatch(menu -> Menu.isDrink(menu.name()))) {
+    private static void validateOnlyDrink(Set<String> menus) {
+        if (menus.stream().allMatch(menu -> Menu.isDrink(menu))) {
             throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
         }
     }
 
-    public Map<Menu, Integer> getValues() {
+    public Map<String, Integer> getValues() {
         return values;
     }
 }
