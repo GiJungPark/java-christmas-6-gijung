@@ -3,14 +3,14 @@ package christmas.domain;
 import christmas.configuration.Menu;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Map;
 
 
 public class OrderMenus {
 
-    private final HashMap<String, Integer> orderMenus;
+    private final Map<String, Integer> orderMenus;
 
-    public OrderMenus(HashMap<String, Integer> menus) {
+    public OrderMenus(Map<String, Integer> menus) {
 
         int totalCount = 0;
 
@@ -32,7 +32,7 @@ public class OrderMenus {
         }
     }
 
-    public HashMap<String, Integer> get() {
+    public Map<String, Integer> get() {
         return orderMenus;
     }
 }

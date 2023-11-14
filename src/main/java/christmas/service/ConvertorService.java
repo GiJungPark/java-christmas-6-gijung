@@ -3,12 +3,13 @@ package christmas.service;
 import christmas.configuration.Menu;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class ConvertorService {
 
-    public HashMap<String, Integer> changeForService(HashMap<String, Integer> menus) {
+    public Map<String, Integer> changeForService(Map<String, Integer> menus) {
 
-        HashMap<String, Integer> map = new HashMap<>();
+        Map<String, Integer> map = new HashMap<>();
 
         for (String menu : menus.keySet()) {
             map.put(Menu.convertorTitle(menu), menus.get(menu));
@@ -17,9 +18,9 @@ public class ConvertorService {
         return map;
     }
 
-    public HashMap<String, Integer> changeForView(HashMap<String, Integer> menus) {
+    public Map<String, Integer> changeForView(Map<String, Integer> menus) {
 
-        HashMap<String, Integer> map = new HashMap<>();
+        Map<String, Integer> map = new HashMap<>();
 
         for (String name : menus.keySet()) {
             map.put(Menu.valueOf(name).getTitle(), menus.get(name));

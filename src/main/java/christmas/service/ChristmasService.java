@@ -25,7 +25,7 @@ public class ChristmasService {
         this.visitDate = new VisitDate(number);
     }
 
-    public void setOrderMenu(HashMap<String, Integer> orderMenu) {
+    public void setOrderMenu(Map<String, Integer> orderMenu) {
         this.orderMenu = new OrderMenus(orderMenu);
     }
 
@@ -33,7 +33,7 @@ public class ChristmasService {
         return visitDate.getNumber();
     }
 
-    public HashMap<String, Integer> getOrderMenus() {
+    public Map<String, Integer> getOrderMenus() {
         return orderMenu.get();
     }
 

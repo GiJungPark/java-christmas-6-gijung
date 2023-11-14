@@ -8,7 +8,7 @@ import christmas.domain.GiveAway;
 import christmas.domain.Price;
 
 import java.text.DecimalFormat;
-import java.util.HashMap;
+import java.util.Map;
 
 public class OutputView {
 
@@ -34,7 +34,7 @@ public class OutputView {
         System.out.println(String.format(Message.WRITE_VISIT_DATE.getValue(), visitDate));
     }
 
-    public static void printMenu(HashMap<String, Integer> orderMenus) {
+    public static void printMenu(Map<String, Integer> orderMenus) {
         System.out.println(Message.ORDER_MENU.getValue());
 
         for (String title : orderMenus.keySet()) {
