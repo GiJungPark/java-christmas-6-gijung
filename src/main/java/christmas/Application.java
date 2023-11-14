@@ -11,24 +11,10 @@ public class Application {
 
         controller.printStartMessage();
 
-        controller.readVisitDate();
+        controller.initUserData();
 
-        controller.readOrderMenu();
+        controller.processLogic();
 
-        controller.printGuideMessage();
-
-        controller.printOrderMenu();
-
-        controller.printTotalPriceBeforeDiscount();
-
-        controller.printGiveAway();
-
-        controller.printDiscountEvent();
-
-        controller.printTotalDiscountPrice();
-
-        controller.printExpectedPaymentPrice();
-
-        controller.printEventBadge();
+        controller.printResult();
     }
 }

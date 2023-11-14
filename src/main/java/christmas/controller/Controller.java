@@ -15,7 +15,12 @@ public class Controller {
         OutputView.printStart();
     }
 
-    public void readVisitDate() {
+    public void initUserData() {
+        readVisitDate();
+        readOrderMenu();
+    }
+
+    private void readVisitDate() {
         try {
             christmasService.setVisitDate(View.readDate());
         } catch (IllegalArgumentException e) {
@@ -24,53 +29,67 @@ public class Controller {
         }
     }
 
-    public void readOrderMenu() {
+    private void readOrderMenu() {
         try {
             christmasService.setOrderMenu(convertorService.changeForService(View.readOrderMenu()));
-            christmasService.setTotalPriceBeforeDiscount();
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
             readOrderMenu();
         }
     }
 
-    public void printGuideMessage() {
+    public void processLogic() {
+        christmasService.setTotalPriceBeforeDiscount();
+    }
+
+    public void printResult() {
+        printGuideMessage();
+        printOrderMenu();
+        printTotalPriceBeforeDiscount();
+        printGiveAway();
+        printDiscountEvent();
+        printTotalDiscountPrice();
+        printExpectedPaymentPrice();
+        printEventBadge();
+    }
+
+    private void printGuideMessage() {
         OutputView.printGuide(christmasService.getVisitDate());
         OutputView.printChangeLine();
     }
 
-    public void printOrderMenu() {
+    private void printOrderMenu() {
         OutputView.printMenu(convertorService.changeForView(christmasService.getOrderMenus()));
         OutputView.printChangeLine();
     }
 
-    public void printTotalPriceBeforeDiscount() {
+    private void printTotalPriceBeforeDiscount() {
         OutputView.printTotalPriceBeforeDiscount(christmasService.getTotalPriceBeforeDiscount());
         OutputView.printChangeLine();
     }
 
-    public void printGiveAway() {
+    private void printGiveAway() {
         OutputView.printGiveAwayMenu(christmasService.getGiveAwayEvent());
         OutputView.printChangeLine();
     }
 
-    public void printDiscountEvent() {
+    private void printDiscountEvent() {
         christmasService.setDiscountEvent();
         OutputView.printDiscountHistory(christmasService.getDiscountEvent());
         OutputView.printChangeLine();
     }
 
-    public void printTotalDiscountPrice() {
+    private void printTotalDiscountPrice() {
         OutputView.printTotalDiscountPrice(christmasService.getTotalDiscountPrice());
         OutputView.printChangeLine();
     }
 
-    public void printExpectedPaymentPrice() {
+    private void printExpectedPaymentPrice() {
         OutputView.printExpectedPaymentPrice(christmasService.getExpectedPaymentPrice());
         OutputView.printChangeLine();
     }
 
-    public void printEventBadge() {
+    private void printEventBadge() {
         christmasService.setEventBadge();
         OutputView.printEventBadge(christmasService.getEventBadge());
     }
