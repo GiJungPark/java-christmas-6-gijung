@@ -7,9 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class InputView {
-    public int readDate() {
-
-        System.out.println(Message.READ_VISIT_DATE.getValue());
+    public static int readDate() {
 
         String input = readLineByRemovingSpaces();
 
@@ -20,28 +18,26 @@ public class InputView {
         return Integer.parseInt(input);
     }
 
-    private String readLineByRemovingSpaces() {
+    private static String readLineByRemovingSpaces() {
 
         String input = Console.readLine();
 
         return input.replaceAll(" ", "");
     }
 
-    private void validateNull(String input) {
+    private static void validateNull(String input) {
         if (input.isEmpty()) {
             throw new IllegalArgumentException("[ERROR] 입력하지 않았습니다. 다시 입력해 주세요.");
         }
     }
 
-    private void validateDate(String input) {
+    private static void validateDate(String input) {
         if (!input.matches("\\d*")) {
             throw new IllegalArgumentException("[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.");
         }
     }
 
-    public HashMap<String, Integer> readMenu() {
-
-        System.out.println(Message.READ_MENU.getValue());
+    public static HashMap<String, Integer> readOrderMenu() {
 
         String input = readLineByRemovingSpaces();
 
@@ -52,13 +48,13 @@ public class InputView {
         return separate(input);
     }
 
-    private void validateEndWithComma(String input) {
+    private static void validateEndWithComma(String input) {
         if (input.charAt(input.length() - 1) == ',') {
             throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
         }
     }
 
-    private HashMap<String, Integer> separate(String input) {
+    private static HashMap<String, Integer> separate(String input) {
 
         HashMap<String, Integer> separatedInput = new HashMap<>();
         for (String inputLine : separateWithComma(input)) {
@@ -74,26 +70,26 @@ public class InputView {
         return separatedInput;
     }
 
-    private void validateKorean(String input) {
+    private static void validateKorean(String input) {
         if (!input.matches("^[ㄱ-ㅎ가-힣]*$")) {
             throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
         }
     }
 
-    private void validateNumber(String input) {
+    private static void validateNumber(String input) {
         if (!input.matches("\\d*")) {
             throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
         }
     }
 
-    private List<String> separateWithComma(String input) {
+    private static List<String> separateWithComma(String input) {
 
         List<String> separatedInput = List.of(input.split(","));
 
         return separatedInput;
     }
 
-    private List<String> separateWithHyphen(String input) {
+    private static List<String> separateWithHyphen(String input) {
 
         List<String> separatedInput = List.of(input.split("-"));
 
@@ -102,13 +98,13 @@ public class InputView {
         return separatedInput;
     }
 
-    private void validateSeparateSize(int size) {
+    private static void validateSeparateSize(int size) {
         if (size != 2) {
             throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
         }
     }
 
-    private void duplicateMenuTitle(HashMap<String, Integer> separatedInput, String menuTitle) {
+    private static void duplicateMenuTitle(HashMap<String, Integer> separatedInput, String menuTitle) {
         if (separatedInput.containsKey(menuTitle)) {
             throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
         }

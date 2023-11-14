@@ -14,19 +14,27 @@ public class OutputView {
 
     private static final DecimalFormat df = new DecimalFormat(Message.PRICE.getValue());
 
-    public void printStart() {
+    public static void printStart() {
         System.out.println(Message.START.getValue());
     }
 
-    public void printChangeLine() {
+    public static void printReadVisitDate() {
+        System.out.println(Message.READ_VISIT_DATE.getValue());
+    }
+
+    public static void printChangeLine() {
         System.out.println();
     }
 
-    public void printGuide(int visitDate) {
+    public static void printReadOrderMenu() {
+        System.out.println(Message.READ_ORDER_MENU.getValue());
+    }
+
+    public static void printGuide(int visitDate) {
         System.out.println(String.format(Message.WRITE_VISIT_DATE.getValue(), visitDate));
     }
 
-    public void printMenu(HashMap<String, Integer> orderMenus) {
+    public static void printMenu(HashMap<String, Integer> orderMenus) {
         System.out.println(Message.ORDER_MENU.getValue());
 
         for (String title : orderMenus.keySet()) {
@@ -34,13 +42,13 @@ public class OutputView {
         }
     }
 
-    public void printTotalPriceBeforeDiscount(int totalPriceBeforeDiscount) {
+    public static void printTotalPriceBeforeDiscount(int totalPriceBeforeDiscount) {
         System.out.println(Message.TOTAL_PRICE_BEFORE_DISCOUNT.getValue());
 
         System.out.println(df.format(totalPriceBeforeDiscount));
     }
 
-    public void printGiveAwayMenu(GiveAway givenAway) {
+    public static void printGiveAwayMenu(GiveAway givenAway) {
         System.out.println(Message.GIVE_AWAY.getValue());
 
         if (givenAway.getTitle().equals(Menu.EMPTY.getTitle())) {
@@ -51,7 +59,7 @@ public class OutputView {
         System.out.println(String.format(Message.MENU_NAME_COUNT.getValue(), givenAway.getTitle(), givenAway.getCount()));
     }
 
-    public void printDiscountHistory(DiscountEvent discountEvent) {
+    public static void printDiscountHistory(DiscountEvent discountEvent) {
         System.out.println(Message.EVENT_HISTORY.getValue());
 
         if(discountEvent.getDiscountEventHistory().isEmpty()) {
@@ -64,19 +72,19 @@ public class OutputView {
         }
     }
 
-    public void printTotalDiscountPrice(Price totalDiscountPrice) {
+    public static void printTotalDiscountPrice(Price totalDiscountPrice) {
         System.out.println(Message.TOTAL_EVENT_PRICE.getValue());
 
         System.out.println(df.format(-totalDiscountPrice.getPrice()));
     }
 
-    public void printExpectedPaymentPrice(Price expectedPaymentPrice) {
+    public static void printExpectedPaymentPrice(Price expectedPaymentPrice) {
         System.out.println(Message.EXPECTED_PRICE_AFTER_DISCOUNT.getValue());
 
         System.out.println(df.format(expectedPaymentPrice.getPrice()));
     }
 
-    public void printEventBadge(EventBadge badge) {
+    public static void printEventBadge(EventBadge badge) {
         System.out.println(Message.EVENT_BADGE.getValue());
         System.out.println(badge.getBadge());
     }
