@@ -37,8 +37,9 @@ public class OutputView {
     public static void printMenu(Map<String, Integer> orderMenus) {
         System.out.println(Message.ORDER_MENU.getValue());
 
-        for (String title : orderMenus.keySet()) {
-            System.out.println(String.format(Message.MENU_NAME_COUNT.getValue(), title, orderMenus.get(title)));
+        for (String key : orderMenus.keySet()) {
+            System.out.println(String.
+                    format(Message.MENU_NAME_COUNT.getValue(), Menu.valueOf(key).getTitle(), orderMenus.get(key)));
         }
     }
 
