@@ -18,7 +18,7 @@ public class OrderMenus {
         for (String menuTitle : orderMenus.keySet()) {
 
             validateMenuCount(orderMenus.get(menuTitle));
-            menus.put(menuTitle, orderMenus.get(menuTitle));
+            menus.put(Menu.findTitle(menuTitle), orderMenus.get(menuTitle));
         }
 
         validateMenuName(menus.keySet());
@@ -28,8 +28,49 @@ public class OrderMenus {
         this.values = menus;
     }
 
+    public Price getTotalPriceBeforeDiscount() {
+
+        int price = 0;
+
+        for (String menuTitle : values.keySet()) {
+            price += Menu.getPrice(menuTitle) * values.get(menuTitle);
+        }
+
+        return new Price(price);
+    }
+
+    public int getDesertCount() {
+
+        int count = 0;
+
+        for (String menuTitle : values.keySet()) {
+            if(Menu.isDesert(menuTitle)) {
+                count += values.get(menuTitle);
+            }
+        }
+
+        return count;
+    }
+
+    public int getMainCount() {
+
+        int count = 0;
+
+        for (String menuTitle : values.keySet()) {
+            if(Menu.isMain(menuTitle)) {
+                count += values.get(menuTitle);
+            }
+        }
+
+        return count;
+    }
+
+    public Map<String, Integer> getValues() {
+        return values;
+    }
+
     private static void validateMenuName(Set<String> menus) {
-        if(menus.contains(Menu.EMPTY.getTitle())) {
+        if (menus.contains(Menu.EMPTY.getTitle())) {
             throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
         }
     }
@@ -44,9 +85,5 @@ public class OrderMenus {
         if (menus.stream().allMatch(menu -> Menu.isDrink(menu))) {
             throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
         }
-    }
-
-    public Map<String, Integer> getValues() {
-        return values;
     }
 }
