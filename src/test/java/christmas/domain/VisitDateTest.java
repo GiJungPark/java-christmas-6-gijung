@@ -12,7 +12,7 @@ public class VisitDateTest {
     @DisplayName("정상적인 방문 날짜 처리")
     @ValueSource(strings = {"1", "10", "20", "31"})
     @ParameterizedTest
-    void qwe(int visitDateNumber) {
+    void createVisitDate(int visitDateNumber) {
         assertThat(new VisitDate(visitDateNumber)).isInstanceOf(VisitDate.class);
     }
 
