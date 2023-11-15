@@ -47,7 +47,7 @@ public class OutputView {
     public static void printTotalPriceBeforeDiscount(Price totalPriceBeforeDiscount) {
         System.out.println(Message.TOTAL_PRICE_BEFORE_DISCOUNT.getValue());
 
-        System.out.println(df.format(totalPriceBeforeDiscount.getPrice()));
+        System.out.println(df.format(totalPriceBeforeDiscount.getValue()));
     }
 
     public static void printGiveAwayMenu(GiveAway givenAway) {
@@ -77,13 +77,13 @@ public class OutputView {
     public static void printTotalDiscountPrice(Price totalDiscountPrice) {
         System.out.println(Message.TOTAL_EVENT_PRICE.getValue());
 
-        System.out.println(df.format(-totalDiscountPrice.getPrice()));
+        System.out.println(df.format(-totalDiscountPrice.getValue()));
     }
 
     public static void printExpectedPaymentPrice(Price expectedPaymentPrice) {
         System.out.println(Message.EXPECTED_PRICE_AFTER_DISCOUNT.getValue());
 
-        System.out.println(df.format(expectedPaymentPrice.getPrice()));
+        System.out.println(df.format(expectedPaymentPrice.getValue()));
     }
 
     public static void printEventBadge(EventBadge badge) {
