@@ -1,6 +1,7 @@
 package christmas.domain;
 
 import christmas.configuration.Count;
+import christmas.configuration.ErrorMessage;
 import christmas.configuration.Menu;
 
 import java.util.HashMap;
@@ -60,19 +61,19 @@ public class OrderMenus {
 
     private static void validateMenuName(Set<String> menus) {
         if (menus.contains(Menu.EMPTY.getTitle())) {
-            throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
+            throw new IllegalArgumentException(ErrorMessage.INVALID_ORDER.getMessage());
         }
     }
 
     private static void validateMenuCount(int count) {
         if (!Count.isIncludeScope(count)) {
-            throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
+            throw new IllegalArgumentException(ErrorMessage.INVALID_ORDER.getMessage());
         }
     }
 
     private static void validateOnlyDrink(Set<String> menus) {
         if (menus.stream().allMatch(menu -> Menu.isDrink(menu))) {
-            throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
+            throw new IllegalArgumentException(ErrorMessage.INVALID_ORDER.getMessage());
         }
     }
 }

@@ -1,5 +1,7 @@
 package christmas.domain;
 
+import christmas.configuration.ErrorMessage;
+
 public class Price {
 
     private static final int GIVE_AWAY_EVENT_PRICE = 120_000;
@@ -14,7 +16,7 @@ public class Price {
 
     private void validatePrice(int value) {
         if (value < 0) {
-            throw new ArithmeticException("[ERROR] 금액이 0원 보다 작을 수 없습니다.");
+            throw new ArithmeticException(ErrorMessage.INVALID_PRICE.getMessage());
         }
     }
 

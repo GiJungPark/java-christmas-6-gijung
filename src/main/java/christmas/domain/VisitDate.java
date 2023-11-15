@@ -1,5 +1,7 @@
 package christmas.domain;
 
+import christmas.configuration.ErrorMessage;
+
 public class VisitDate {
 
     private static final int CHRISTMAS = 25;
@@ -20,7 +22,7 @@ public class VisitDate {
 
     private void validateNumberSize(int number) {
         if(1 > number || number > 31) {
-            throw new IllegalArgumentException("[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.");
+            throw new IllegalArgumentException(ErrorMessage.INVALID_DATE.getMessage());
         }
     }
 
