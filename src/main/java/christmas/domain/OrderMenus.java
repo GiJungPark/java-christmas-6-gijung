@@ -28,17 +28,6 @@ public class OrderMenus {
         this.values = menus;
     }
 
-    public Price getTotalPriceBeforeDiscount() {
-
-        int price = 0;
-
-        for (String menuTitle : values.keySet()) {
-            price += Menu.getPrice(menuTitle) * values.get(menuTitle);
-        }
-
-        return new Price(price);
-    }
-
     public int getDesertCount() {
 
         int count = 0;
