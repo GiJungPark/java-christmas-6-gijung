@@ -1,5 +1,7 @@
 package christmas.domain;
 
+import christmas.configuration.Event;
+
 import java.util.Map;
 
 public class DiscountEvent {
@@ -7,35 +9,28 @@ public class DiscountEvent {
     private final Map<String, Integer> discountEventHistory;
 
     public DiscountEvent(Map<String, Integer> discountEventHistory) {
+        validateEventHistory(discountEventHistory);
         this.discountEventHistory = discountEventHistory;
+    }
+
+    private void validateEventHistory(Map<String, Integer> discountEventHistory) {
+
+        for (String eventTitle : discountEventHistory.keySet()) {
+
+            if (eventTitle.equals(Event.EMPTY_DISCOUNT.getTitle())) {
+                discountEventHistory.remove(eventTitle);
+                continue;
+            }
+
+            if(discountEventHistory.get(eventTitle) == 0) {
+                discountEventHistory.remove(eventTitle);
+            }
+        }
+
     }
 
     public Map<String, Integer> getDiscountEventHistory() {
         return discountEventHistory;
     }
 
-    public int getTotalDiscountPrice() {
-
-        int totalDiscountPrice = 0;
-
-        for (String title : discountEventHistory.keySet()) {
-            totalDiscountPrice += discountEventHistory.get(title);
-        }
-
-        return totalDiscountPrice;
-    }
-
-    public int getDiscountPrice() {
-
-        int discountPrice = 0;
-
-        for (String title : discountEventHistory.keySet()) {
-            if (title.equals("증정 이벤트")) {
-                continue;
-            }
-            discountPrice += discountEventHistory.get(title);
-        }
-
-        return discountPrice;
-    }
 }
