@@ -62,26 +62,26 @@ public enum Menu {
         return EMPTY.name();
     }
 
-    public static boolean hasTitle(String menuTitle) {
+    public static String findTitle(String menuTitle) {
 
         for (Menu menu : Menu.values()) {
             if (menu.getTitle().equals(menuTitle)) {
-                return true;
+                return menu.getTitle();
             }
         }
 
-        return false;
+        return EMPTY.getTitle();
     }
 
     public static boolean isDrink(String menuTitle) {
-        return Menu.valueOf(menuTitle).getGroup().equals("음료");
+        return Menu.valueOf(findMenu(menuTitle)).getGroup().equals("음료");
     }
 
     public static boolean isDesert(String menuTitle) {
-        return Menu.valueOf(menuTitle).getGroup().equals("디저트");
+        return Menu.valueOf(findMenu(menuTitle)).getGroup().equals("디저트");
     }
 
     public static boolean isMain(String menuTitle) {
-        return Menu.valueOf(menuTitle).getGroup().equals("메인");
+        return Menu.valueOf(findMenu(menuTitle)).getGroup().equals("메인");
     }
 }
