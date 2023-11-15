@@ -13,8 +13,6 @@ public class Application {
 
         controller.initUserData();
 
-        controller.processLogic();
-
         controller.printResult();
     }
 }
