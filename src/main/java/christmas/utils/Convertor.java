@@ -1,5 +1,7 @@
 package christmas.utils;
 
+import christmas.configuration.ErrorMessage;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,7 +16,7 @@ public class Convertor {
         try {
             return Integer.valueOf(value);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.");
+            throw new IllegalArgumentException(ErrorMessage.INVALID_DATE.getMessage());
         }
     }
 
@@ -39,19 +41,19 @@ public class Convertor {
         try {
             return Integer.valueOf(value);
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
+            throw new IllegalArgumentException(ErrorMessage.INVALID_ORDER.getMessage());
         }
     }
 
     private static void duplicateMenu(Set<String> menus, String menu) {
         if (menus.contains(menu)) {
-            throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
+            throw new IllegalArgumentException(ErrorMessage.INVALID_ORDER.getMessage());
         }
     }
 
     private static void validateFormat(int size) {
         if (size != 2) {
-            throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
+            throw new IllegalArgumentException(ErrorMessage.INVALID_ORDER.getMessage());
         }
     }
 }
