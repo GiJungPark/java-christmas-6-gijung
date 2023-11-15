@@ -2,13 +2,31 @@ package christmas.domain;
 
 public class Price {
 
-    private int price;
+    private static final int GIVE_AWAY_EVENT_PRICE = 120_000;
+    private static final int DISCOUNT_EVENT_PRICE = 10_000;
 
-    public Price(int price) {
-        this.price = price;
+    private int value;
+
+    public Price(int value) {
+        validatePrice(value);
+        this.value = value;
     }
 
-    public int getPrice() {
-        return price;
+    private void validatePrice(int value) {
+        if (value < 0) {
+            throw new ArithmeticException("[ERROR] 금액이 0원 보다 작을 수 없습니다.");
+        }
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public boolean isApplyGiveAway() {
+        return value >= GIVE_AWAY_EVENT_PRICE;
+    }
+
+    public boolean isApplyDiscount() {
+        return value >= DISCOUNT_EVENT_PRICE;
     }
 }
