@@ -19,15 +19,15 @@ public class Convertor {
     }
 
     public static Map<String, Integer> toMenus(String value) {
-
         List<String> keyValuePairs = List.of(value.split(ORDER_SEPARATOR));
 
         Map<String, Integer> organizedData = new HashMap<>();
 
         for (String pair : keyValuePairs) {
             List<String> entry = List.of(pair.split(NAME_COUNT_SEPARATOR));
-            duplicateMenu(organizedData.keySet(), entry.get(0));
+
             validateFormat(entry.size());
+            duplicateMenu(organizedData.keySet(), entry.get(0));
 
             organizedData.put(entry.get(0), toCount(entry.get(1)));
         }
