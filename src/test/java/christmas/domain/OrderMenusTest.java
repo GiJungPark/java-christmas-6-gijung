@@ -74,4 +74,62 @@ public class OrderMenusTest {
         assertThatThrownBy(() -> new OrderMenus(menus))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @DisplayName("메인 메뉴의 개수를 출력 - 메인 메뉴가 있는 경우")
+    @Test
+    void getMainMenuCount() {
+
+        int mainMenuCount = 10;
+        HashMap<String, Integer> menus = new HashMap<>() {{
+            put("해산물파스타", mainMenuCount);
+            put("레드와인", 3);
+        }};
+
+        OrderMenus orderMenus = new OrderMenus(menus);
+
+        assertThat(orderMenus.getMainCount()).isEqualTo(mainMenuCount);
+    }
+
+    @DisplayName("메인 메뉴의 개수를 출력 - 메인 메뉴가 없는 경우")
+    @Test
+    void getMainMenuCountByNone() {
+
+        HashMap<String, Integer> menus = new HashMap<>() {{
+            put("초코케이크", 3);
+            put("레드와인", 3);
+        }};
+
+        OrderMenus orderMenus = new OrderMenus(menus);
+
+        assertThat(orderMenus.getMainCount()).isEqualTo(0);
+    }
+
+    @DisplayName("디저트 메뉴의 개수를 출력 - 디저트 메뉴가 있는 경우")
+    @Test
+    void getDesertMenuCount() {
+
+        int desertMenuCount = 10;
+        HashMap<String, Integer> menus = new HashMap<>() {{
+            put("초코케이크", desertMenuCount);
+            put("레드와인", 3);
+        }};
+
+        OrderMenus orderMenus = new OrderMenus(menus);
+
+        assertThat(orderMenus.getDesertCount()).isEqualTo(desertMenuCount);
+    }
+
+    @DisplayName("메인 메뉴의 개수를 출력 - 메인 메뉴가 없는 경우")
+    @Test
+    void getDesertMenuCountByNone() {
+
+        HashMap<String, Integer> menus = new HashMap<>() {{
+            put("바비큐립", 3);
+            put("레드와인", 3);
+        }};
+
+        OrderMenus orderMenus = new OrderMenus(menus);
+
+        assertThat(orderMenus.getDesertCount()).isEqualTo(0);
+    }
 }
